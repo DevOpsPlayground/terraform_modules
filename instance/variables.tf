@@ -50,4 +50,7 @@ variable "purpose" {
   default     = "Playground"
   description = "A tag to give each resource"
 }
-
+variable root_block_size {
+  default     = 8
+  description = "Size of the root volume"
+}

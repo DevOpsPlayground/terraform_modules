@@ -7,6 +7,9 @@ resource "aws_instance" "main" {
   vpc_security_group_ids      = var.security_group_ids
   subnet_id                   = var.subnet_id
   user_data                   = var.user_data
+  root_block_device {
+    volume_size = var.root_block_size
+  }
 
   tags = {
     Name    = "${var.PlaygroundName}-${count.index + 1}"
