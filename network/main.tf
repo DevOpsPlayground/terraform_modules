@@ -33,7 +33,7 @@ resource "aws_nat_gateway" "ngw" {
 resource "aws_subnet" "public_subnets" {
   count                   = var.required_subnets > 0 ? var.required_subnets : 1
   vpc_id                  = aws_vpc.vpc.id
-  cidr_block              = cidrsubnet(var.cidr_block, 8, 10 + count.index)
+  cidr_block              = cidrsubnet(var.cidr_block, 4, 10 + count.index)
   availability_zone       = element(data.aws_availability_zones.zones.names, count.index)
   map_public_ip_on_launch = true
 
